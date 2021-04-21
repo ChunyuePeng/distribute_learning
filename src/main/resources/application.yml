@@ -1,0 +1,37 @@
+spring:
+  data:
+    redis:
+      repositories:
+        enabled: false
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    database: 0
+  datasource:
+    url:  jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true&verifyServerCertificate=false&useSSL=false
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    username:  root
+    password:  root123
+    initialSize:  5
+    maxActive:  50
+    minIdle:  5
+    maxWait:  60000
+    poolPreparedStatements:  true
+    maxPoolPreparedStatementPerConnectionSize:  20
+    validationQuery:  SELECT 1 FROM DUAL
+    testOnBorrow:  false
+    testOnReturn:  false
+    testWhileIdle:  true
+    timeBetweenEvictionRunsMillis:  60000
+    filters:  stat,wall
+    type: com.alibaba.druid.pool.DruidDataSource
+  jackson:
+    time-zone: GMT+0
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+server:
+  port: 9999
